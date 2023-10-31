@@ -8,6 +8,8 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController')
 
+const productRoutes = require('./routes/productRoute')
+
 const limiter = rateLimit({
   // limiter is now become a middleware function
   max: 1000,
@@ -23,6 +25,9 @@ app.use(hpp());
 // app.use(limiter);
 
 app.use(express.json({ limit: '10mb' }));
+
+// API
+app.use('/api/v1/product', productRoutes)
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
