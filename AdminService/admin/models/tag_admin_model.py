@@ -4,7 +4,7 @@ from tag.models.tag_model import Tag
 
 class TagAdmin(ModelView, model=Tag):
     name = "Tag"
-    icon = "fa-solid fa-language"
+    icon = "fa-solid fa-tags"
     page_size_options = [25, 50, 100, 200]
     category = "PRODUCT"
 
@@ -13,6 +13,9 @@ class TagAdmin(ModelView, model=Tag):
     can_delete = True
     can_view_details = True
     can_export = False
+
+    column_list = [Tag.id, Tag.name, Tag.products]
+    form_excluded_columns = [Tag.products]
     
     column_labels = {
         'id': 'ID',

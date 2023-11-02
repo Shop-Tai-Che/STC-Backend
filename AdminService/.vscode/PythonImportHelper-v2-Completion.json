@@ -24,6 +24,54 @@
         "documentation": {}
     },
     {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -120,6 +168,30 @@
         "documentation": {}
     },
     {
+        "label": "ModelView",
+        "importPath": "sqladmin",
+        "description": "sqladmin",
+        "isExtraImport": true,
+        "detail": "sqladmin",
+        "documentation": {}
+    },
+    {
+        "label": "ModelView",
+        "importPath": "sqladmin",
+        "description": "sqladmin",
+        "isExtraImport": true,
+        "detail": "sqladmin",
+        "documentation": {}
+    },
+    {
+        "label": "ModelView",
+        "importPath": "sqladmin",
+        "description": "sqladmin",
+        "isExtraImport": true,
+        "detail": "sqladmin",
+        "documentation": {}
+    },
+    {
         "label": "Admin",
         "importPath": "sqladmin",
         "description": "sqladmin",
@@ -133,6 +205,30 @@
         "description": "sqladmin",
         "isExtraImport": true,
         "detail": "sqladmin",
+        "documentation": {}
+    },
+    {
+        "label": "Love",
+        "importPath": "love.models.love_model",
+        "description": "love.models.love_model",
+        "isExtraImport": true,
+        "detail": "love.models.love_model",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "product.models.product_model",
+        "description": "product.models.product_model",
+        "isExtraImport": true,
+        "detail": "product.models.product_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProductMedia",
+        "importPath": "product.models.product_media_model",
+        "description": "product.models.product_media_model",
+        "isExtraImport": true,
+        "detail": "product.models.product_media_model",
         "documentation": {}
     },
     {
@@ -233,6 +329,102 @@
     },
     {
         "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1592,6 +1784,30 @@
         "documentation": {}
     },
     {
+        "label": "Base",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
         "label": "get_db",
         "importPath": "database",
         "description": "database",
@@ -1810,6 +2026,170 @@
         "importPath": "requests",
         "description": "requests",
         "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "pathlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -2167,24 +2547,6 @@
         "importPath": "urllib.request",
         "description": "urllib.request",
         "detail": "urllib.request",
-        "documentation": {}
-    },
-    {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -2861,71 +3223,6 @@
         "importPath": "TTS",
         "description": "TTS",
         "detail": "TTS",
-        "documentation": {}
-    },
-    {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "RawTextHelpFormatter",
-        "importPath": "argparse",
-        "description": "argparse",
-        "isExtraImport": true,
-        "detail": "argparse",
         "documentation": {}
     },
     {
@@ -5962,87 +6259,6 @@
         "description": "TTS.tts.utils.text.phonemizers",
         "isExtraImport": true,
         "detail": "TTS.tts.utils.text.phonemizers",
-        "documentation": {}
-    },
-    {
-        "label": "pathlib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -15932,11 +16148,299 @@
         "documentation": {}
     },
     {
+        "label": "TIMESTAMP",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "event",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "TIMESTAMP",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "event",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "TIMESTAMP",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "event",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
         "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
         "documentation": {}
     },
     {
@@ -16021,6 +16525,23 @@
         "documentation": {}
     },
     {
+        "label": "firebase_admin",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "firebase_admin",
+        "description": "firebase_admin",
+        "detail": "firebase_admin",
+        "documentation": {}
+    },
+    {
+        "label": "credentials",
+        "importPath": "firebase_admin",
+        "description": "firebase_admin",
+        "isExtraImport": true,
+        "detail": "firebase_admin",
+        "documentation": {}
+    },
+    {
         "label": "requires",
         "importPath": "starlette.authentication",
         "description": "starlette.authentication",
@@ -16061,11 +16582,62 @@
         "documentation": {}
     },
     {
+        "label": "ProductAdmin",
+        "importPath": "admin.models.product_admin_model",
+        "description": "admin.models.product_admin_model",
+        "isExtraImport": true,
+        "detail": "admin.models.product_admin_model",
+        "documentation": {}
+    },
+    {
+        "label": "LoveAdmin",
+        "importPath": "admin.models.love_admin_model",
+        "description": "admin.models.love_admin_model",
+        "isExtraImport": true,
+        "detail": "admin.models.love_admin_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProductMediaAdmin",
+        "importPath": "admin.models.product_media_admin_model",
+        "description": "admin.models.product_media_admin_model",
+        "isExtraImport": true,
+        "detail": "admin.models.product_media_admin_model",
+        "documentation": {}
+    },
+    {
+        "label": "LoveAdmin",
+        "kind": 6,
+        "importPath": "admin.models.love_admin_model",
+        "description": "admin.models.love_admin_model",
+        "peekOfCode": "class LoveAdmin(ModelView, model=Love):\n    name = \"Love\"\n    icon = \"fa-solid fa-thumbs-up\"\n    page_size_options = [25, 50, 100, 200]\n    category = \"LOVE\"\n    can_edit = True\n    can_delete = True\n    can_view_details = True\n    column_list = [Love.id, Love.product, Love.user_id, Love.created_at]\n    form_excluded_columns = [Love.created_at]",
+        "detail": "admin.models.love_admin_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAdmin",
+        "kind": 6,
+        "importPath": "admin.models.product_admin_model",
+        "description": "admin.models.product_admin_model",
+        "peekOfCode": "class ProductAdmin(ModelView, model=Product):\n    name = \"Product\"\n    icon = \"fa-solid fa-shirt\"\n    page_size_options = [25, 50, 100, 200]\n    category = \"PRODUCT\"\n    can_create = True\n    can_edit = True\n    can_delete = True\n    can_view_details = True\n    can_export = False",
+        "detail": "admin.models.product_admin_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProductMediaAdmin",
+        "kind": 6,
+        "importPath": "admin.models.product_media_admin_model",
+        "description": "admin.models.product_media_admin_model",
+        "peekOfCode": "class ProductMediaAdmin(ModelView, model=ProductMedia):\n    name = \"Product Media\"\n    icon = \"fa-solid fa-photo-film\"\n    page_size_options = [25, 50, 100, 200]\n    category = \"PRODUCT\"\n    can_create = True\n    can_edit = True\n    can_delete = True\n    can_view_details = True\n    can_export = False",
+        "detail": "admin.models.product_media_admin_model",
+        "documentation": {}
+    },
+    {
         "label": "TagAdmin",
         "kind": 6,
         "importPath": "admin.models.tag_admin_model",
         "description": "admin.models.tag_admin_model",
-        "peekOfCode": "class TagAdmin(ModelView, model=Tag):\n    name = \"Tag\"\n    icon = \"fa-solid fa-language\"\n    page_size_options = [25, 50, 100, 200]\n    category = \"PRODUCT\"\n    can_create = True\n    can_edit = True\n    can_delete = True\n    can_view_details = True\n    can_export = False",
+        "peekOfCode": "class TagAdmin(ModelView, model=Tag):\n    name = \"Tag\"\n    icon = \"fa-solid fa-tags\"\n    page_size_options = [25, 50, 100, 200]\n    category = \"PRODUCT\"\n    can_create = True\n    can_edit = True\n    can_delete = True\n    can_view_details = True\n    can_export = False",
         "detail": "admin.models.tag_admin_model",
         "documentation": {}
     },
@@ -16220,6 +16792,60 @@
         "description": "auth.utils",
         "peekOfCode": "password_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef create_access_token(\n    username: str = None,\n    user_id: int = None,\n    expires_delta: timedelta = None,\n) -> str:\n    if expires_delta is not None:\n        expires_delta = datetime.utcnow() + expires_delta\n    else:\n        expires_delta = datetime.utcnow() + timedelta(",
         "detail": "auth.utils",
+        "documentation": {}
+    },
+    {
+        "label": "firestore_adminCallTransformer",
+        "kind": 6,
+        "importPath": "env.bin.fixup_firestore_admin_v1_keywords",
+        "description": "env.bin.fixup_firestore_admin_v1_keywords",
+        "peekOfCode": "class firestore_adminCallTransformer(cst.CSTTransformer):\n    CTRL_PARAMS: Tuple[str] = ('retry', 'timeout', 'metadata')\n    METHOD_TO_PARAMS: Dict[str, Tuple[str]] = {\n        'create_database': ('parent', 'database', 'database_id', ),\n        'create_index': ('parent', 'index', ),\n        'delete_index': ('name', ),\n        'export_documents': ('name', 'collection_ids', 'output_uri_prefix', ),\n        'get_database': ('name', ),\n        'get_field': ('name', ),\n        'get_index': ('name', ),",
+        "detail": "env.bin.fixup_firestore_admin_v1_keywords",
+        "documentation": {}
+    },
+    {
+        "label": "partition",
+        "kind": 2,
+        "importPath": "env.bin.fixup_firestore_admin_v1_keywords",
+        "description": "env.bin.fixup_firestore_admin_v1_keywords",
+        "peekOfCode": "def partition(\n    predicate: Callable[[Any], bool],\n    iterator: Sequence[Any]\n) -> Tuple[List[Any], List[Any]]:\n    \"\"\"A stable, out-of-place partition.\"\"\"\n    results = ([], [])\n    for i in iterator:\n        results[int(predicate(i))].append(i)\n    # Returns trueList, falseList\n    return results[1], results[0]",
+        "detail": "env.bin.fixup_firestore_admin_v1_keywords",
+        "documentation": {}
+    },
+    {
+        "label": "fix_files",
+        "kind": 2,
+        "importPath": "env.bin.fixup_firestore_admin_v1_keywords",
+        "description": "env.bin.fixup_firestore_admin_v1_keywords",
+        "peekOfCode": "def fix_files(\n    in_dir: pathlib.Path,\n    out_dir: pathlib.Path,\n    *,\n    transformer=firestore_adminCallTransformer(),\n):\n    \"\"\"Duplicate the input dir to the output dir, fixing file method calls.\n    Preconditions:\n    * in_dir is a real directory\n    * out_dir is a real, empty directory",
+        "detail": "env.bin.fixup_firestore_admin_v1_keywords",
+        "documentation": {}
+    },
+    {
+        "label": "firestoreCallTransformer",
+        "kind": 6,
+        "importPath": "env.bin.fixup_firestore_v1_keywords",
+        "description": "env.bin.fixup_firestore_v1_keywords",
+        "peekOfCode": "class firestoreCallTransformer(cst.CSTTransformer):\n    CTRL_PARAMS: Tuple[str] = ('retry', 'timeout', 'metadata')\n    METHOD_TO_PARAMS: Dict[str, Tuple[str]] = {\n        'batch_get_documents': ('database', 'documents', 'mask', 'transaction', 'new_transaction', 'read_time', ),\n        'batch_write': ('database', 'writes', 'labels', ),\n        'begin_transaction': ('database', 'options', ),\n        'commit': ('database', 'writes', 'transaction', ),\n        'create_document': ('parent', 'collection_id', 'document', 'document_id', 'mask', ),\n        'delete_document': ('name', 'current_document', ),\n        'get_document': ('name', 'mask', 'transaction', 'read_time', ),",
+        "detail": "env.bin.fixup_firestore_v1_keywords",
+        "documentation": {}
+    },
+    {
+        "label": "partition",
+        "kind": 2,
+        "importPath": "env.bin.fixup_firestore_v1_keywords",
+        "description": "env.bin.fixup_firestore_v1_keywords",
+        "peekOfCode": "def partition(\n    predicate: Callable[[Any], bool],\n    iterator: Sequence[Any]\n) -> Tuple[List[Any], List[Any]]:\n    \"\"\"A stable, out-of-place partition.\"\"\"\n    results = ([], [])\n    for i in iterator:\n        results[int(predicate(i))].append(i)\n    # Returns trueList, falseList\n    return results[1], results[0]",
+        "detail": "env.bin.fixup_firestore_v1_keywords",
+        "documentation": {}
+    },
+    {
+        "label": "fix_files",
+        "kind": 2,
+        "importPath": "env.bin.fixup_firestore_v1_keywords",
+        "description": "env.bin.fixup_firestore_v1_keywords",
+        "peekOfCode": "def fix_files(\n    in_dir: pathlib.Path,\n    out_dir: pathlib.Path,\n    *,\n    transformer=firestoreCallTransformer(),\n):\n    \"\"\"Duplicate the input dir to the output dir, fixing file method calls.\n    Preconditions:\n    * in_dir is a real directory\n    * out_dir is a real, empty directory",
+        "detail": "env.bin.fixup_firestore_v1_keywords",
         "documentation": {}
     },
     {
@@ -35798,11 +36424,38 @@
         "documentation": {}
     },
     {
+        "label": "Love",
+        "kind": 6,
+        "importPath": "love.models.love_model",
+        "description": "love.models.love_model",
+        "peekOfCode": "class Love(Base):\n    __tablename__ = \"Love\"\n    id = Column(Integer, primary_key=True)\n    user_id = Column(Integer, nullable=True)\n    product_id = Column(Integer, ForeignKey('Product.id'), nullable=True)\n    product = relationship(\"Product\", back_populates=\"loves\")\n    created_at = Column(\n        TIMESTAMP(timezone=True), nullable=False, server_default=text(\"now()\")\n    )\n    def __str__(self):",
+        "detail": "love.models.love_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProductMedia",
+        "kind": 6,
+        "importPath": "product.models.product_media_model",
+        "description": "product.models.product_media_model",
+        "peekOfCode": "class ProductMedia(Base):\n    __tablename__ = \"ProductMedia\"\n    id = Column(Integer, primary_key=True)\n    url = Column(String(512))\n    product_id = Column(Integer, ForeignKey('Product.id'), nullable=True)\n    sequence = Column(Integer, default=0)\n    product = relationship(\"Product\", back_populates=\"images\")\n    def __str__(self):\n        return self.url",
+        "detail": "product.models.product_media_model",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "product.models.product_model",
+        "description": "product.models.product_model",
+        "peekOfCode": "class Product(Base):\n    __tablename__ = \"Product\"\n    id = Column(Integer, primary_key=True)\n    title = Column(String(128), nullable=False)\n    price = Column(Integer, default=0)\n    description = Column(String(1000), default=\"\")\n    amount = Column(Integer, default=1)\n    shop_id = Column(Integer, nullable=True)\n    tag_id = Column(Integer, ForeignKey('Tag.id'), nullable=True)\n    discount = Column(Integer, nullable=True)",
+        "detail": "product.models.product_model",
+        "documentation": {}
+    },
+    {
         "label": "Tag",
         "kind": 6,
         "importPath": "tag.models.tag_model",
         "description": "tag.models.tag_model",
-        "peekOfCode": "class Tag(Base):\n    __tablename__ = \"Tag\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String(50), nullable=False)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Tag(Base):\n    __tablename__ = \"Tag\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String(50), nullable=False)\n    products = relationship(\"Product\", back_populates=\"tag\")\n    def __str__(self):\n        return self.name",
         "detail": "tag.models.tag_model",
         "documentation": {}
     },
@@ -35874,7 +36527,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI(title=\"ShopTaiChe Admin\")\nauthentication_backend = AdminAuth(secret_key=\"29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1\")\nadmin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\napp.add_middleware(ExceptionMiddleware)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}\n@app.get(\"/test\")\nasync def protected_route(request: Request, token: str = Depends(HTTPBearer())):",
+        "peekOfCode": "app = FastAPI(title=\"ShopTaiChe Admin\")\nauthentication_backend = AdminAuth(secret_key=\"29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1\")\nadmin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\nadmin.add_view(ProductAdmin)\nadmin.add_view(ProductMediaAdmin)\nadmin.add_view(LoveAdmin)\napp.add_middleware(ExceptionMiddleware)\ncred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(",
         "detail": "main",
         "documentation": {}
     },
@@ -35883,7 +36536,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "authentication_backend = AdminAuth(secret_key=\"29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1\")\nadmin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\napp.add_middleware(ExceptionMiddleware)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}\n@app.get(\"/test\")\nasync def protected_route(request: Request, token: str = Depends(HTTPBearer())):\n    # Use the authenticated user for further processing",
+        "peekOfCode": "authentication_backend = AdminAuth(secret_key=\"29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1\")\nadmin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\nadmin.add_view(ProductAdmin)\nadmin.add_view(ProductMediaAdmin)\nadmin.add_view(LoveAdmin)\napp.add_middleware(ExceptionMiddleware)\ncred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(\n    cred,",
         "detail": "main",
         "documentation": {}
     },
@@ -35892,7 +36545,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "admin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\napp.add_middleware(ExceptionMiddleware)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}\n@app.get(\"/test\")\nasync def protected_route(request: Request, token: str = Depends(HTTPBearer())):\n    # Use the authenticated user for further processing\n    return {\"message\": f\"Hello!\"}",
+        "peekOfCode": "admin = AdminBackend(app, engine, authentication_backend=authentication_backend)\nadmin.add_view(TagAdmin)\nadmin.add_view(ProductAdmin)\nadmin.add_view(ProductMediaAdmin)\nadmin.add_view(LoveAdmin)\napp.add_middleware(ExceptionMiddleware)\ncred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(\n    cred,\n    {",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "cred",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "cred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(\n    cred,\n    {\n        \"storageBucket\": \"gokag-19eac.appspot.com\",\n    },\n)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}",
         "detail": "main",
         "documentation": {}
     }
