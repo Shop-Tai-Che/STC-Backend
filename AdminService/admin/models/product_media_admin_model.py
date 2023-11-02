@@ -14,13 +14,17 @@ class ProductMediaAdmin(ModelView, model=ProductMedia):
     can_view_details = True
     can_export = False
 
-    column_list = [ProductMedia.id, ProductMedia.url, ProductMedia.sequence]
+    column_searchable_list = [ProductMedia.id]
+    column_sortable_list = [ProductMedia.id]
+
+    column_list = [ProductMedia.id, ProductMedia.product, ProductMedia.sequence, ProductMedia.url]
     
     column_labels = {
         'id': 'ID',
         'url': 'URL',
         'user_id': 'User ID',
         'product_id': 'Product ID',
+        'product': 'Product',
         'images': 'Images'
     }
 

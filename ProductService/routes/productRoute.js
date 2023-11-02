@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get('/', productController.getAll);
 
+router.get('/suggestion', productController.getMostLovedProducts);
+
 module.exports = router;

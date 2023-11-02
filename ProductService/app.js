@@ -7,8 +7,10 @@ const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController')
+const corsOptions = require('./configs/corsOptions');
 
-const productRoutes = require('./routes/productRoute')
+const productRoutes = require('./routes/productRoute');
+const { corsMiddleware } = require('./middlewares/corsMiddleware');
 
 const limiter = rateLimit({
   // limiter is now become a middleware function
@@ -18,7 +20,8 @@ const limiter = rateLimit({
 }); // define how many requests per IP we are going to allow in a certain of time
 
 const app = express();
-app.use(cors());
+app.use(corsMiddleware)
+app.use(cors(corsOptions));
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());

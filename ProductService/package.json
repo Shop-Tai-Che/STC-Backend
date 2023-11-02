@@ -1,5 +1,5 @@
 {
-  "name": "atmclothing",
+  "name": "shoptaiche",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,7 +8,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js"
   },
-  "author": "atmclothing",
+  "author": "shoptaiche",
   "license": "ISC",
   "dependencies": {
     "@google-cloud/speech": "^5.4.0",
