@@ -74,3 +74,33 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
         next(new AppError(e, 500))
     }
 })
+
+
+exports.getById = catchAsync(async (req, res, next) => {
+    const productId = parseInt(req?.params?.id || 0)
+
+    try {
+        const product = await prisma.product.findFirstOrThrow({
+            where: {
+                id: productId
+            },
+            include: {
+                tag: true,
+                ProductMedia: {
+                    select: {
+                        url: true,
+                        sequence: true,
+                    }
+                },
+                Love: true
+            },
+        });
+
+        res.status(200).json({
+            status: 'success',
+            data: product,
+        });
+    } catch (e) {
+        next(new AppError(e, 500))
+    }
+})
