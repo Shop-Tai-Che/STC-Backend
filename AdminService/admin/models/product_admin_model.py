@@ -14,8 +14,11 @@ class ProductAdmin(ModelView, model=Product):
     can_view_details = True
     can_export = False
 
+    column_searchable_list = [Product.id, Product.title]
+    column_sortable_list = [Product.id, Product.title]
+
     column_list = [Product.id, Product.title, Product.price, Product.tag]
-    form_excluded_columns = [Product.created_at, Product.updated_at]
+    form_excluded_columns = [Product.created_at, Product.updated_at, Product.loves, Product.images]
     
     column_labels = {
         'id': 'ID',
