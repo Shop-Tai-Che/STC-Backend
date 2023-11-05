@@ -42,7 +42,7 @@ services:
     image: feedback
     container_name: feedback
     ports:
-      - "3003:3003"
+      - "5002:5002"
       
   admin:
     build:

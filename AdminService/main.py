@@ -36,7 +36,7 @@ cred = credentials.Certificate("firebaseConfig.json")
 firebase_admin.initialize_app(
     cred,
     {
-        "storageBucket": "gokag-19eac.appspot.com",
+        "storageBucket": "shop-tai-che.appspot.com",
     },
 )
 
