@@ -232,6 +232,31 @@
         "documentation": {}
     },
     {
+        "label": "upload_image",
+        "importPath": "service.firebase_util",
+        "description": "service.firebase_util",
+        "isExtraImport": true,
+        "detail": "service.firebase_util",
+        "documentation": {}
+    },
+    {
+        "label": "wtforms",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "FileField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
         "label": "Tag",
         "importPath": "tag.models.tag_model",
         "description": "tag.models.tag_model",
@@ -16468,6 +16493,40 @@
         "documentation": {}
     },
     {
+        "label": "firebase_admin",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "firebase_admin",
+        "description": "firebase_admin",
+        "detail": "firebase_admin",
+        "documentation": {}
+    },
+    {
+        "label": "storage",
+        "importPath": "firebase_admin",
+        "description": "firebase_admin",
+        "isExtraImport": true,
+        "detail": "firebase_admin",
+        "documentation": {}
+    },
+    {
+        "label": "credentials",
+        "importPath": "firebase_admin",
+        "description": "firebase_admin",
+        "isExtraImport": true,
+        "detail": "firebase_admin",
+        "documentation": {}
+    },
+    {
+        "label": "mimetypes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mimetypes",
+        "description": "mimetypes",
+        "detail": "mimetypes",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -16522,23 +16581,6 @@
         "importPath": "uvicorn",
         "description": "uvicorn",
         "detail": "uvicorn",
-        "documentation": {}
-    },
-    {
-        "label": "firebase_admin",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "firebase_admin",
-        "description": "firebase_admin",
-        "detail": "firebase_admin",
-        "documentation": {}
-    },
-    {
-        "label": "credentials",
-        "importPath": "firebase_admin",
-        "description": "firebase_admin",
-        "isExtraImport": true,
-        "detail": "firebase_admin",
         "documentation": {}
     },
     {
@@ -36554,7 +36596,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "cred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(\n    cred,\n    {\n        \"storageBucket\": \"gokag-19eac.appspot.com\",\n    },\n)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}",
+        "peekOfCode": "cred = credentials.Certificate(\"firebaseConfig.json\")\nfirebase_admin.initialize_app(\n    cred,\n    {\n        \"storageBucket\": \"shop-tai-che.appspot.com\",\n    },\n)\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}",
         "detail": "main",
         "documentation": {}
     }

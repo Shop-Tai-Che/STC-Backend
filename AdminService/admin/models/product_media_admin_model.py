@@ -1,6 +1,8 @@
 from fastapi import Depends, Request
 from sqladmin import ModelView
 from product.models.product_media_model import ProductMedia
+from service.firebase_util import upload_image
+import wtforms
 
 class ProductMediaAdmin(ModelView, model=ProductMedia):
     name = "Product Media"
@@ -13,6 +15,8 @@ class ProductMediaAdmin(ModelView, model=ProductMedia):
     can_delete = True
     can_view_details = True
     can_export = False
+
+    form_overrides = dict(url=wtforms.FileField)
 
     column_searchable_list = [ProductMedia.id]
     column_sortable_list = [ProductMedia.id]
@@ -28,3 +32,8 @@ class ProductMediaAdmin(ModelView, model=ProductMedia):
         'images': 'Images'
     }
 
+    async def on_model_change(self, data, model, is_created):
+        if 'url' in data:
+            result = await upload_image(data['url'])
+
+            data['url'] = result
