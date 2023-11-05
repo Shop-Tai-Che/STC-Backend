@@ -10,8 +10,48 @@ datasource db {
   url      = env("DATABASE_POSTGRE")
 }
 
-
 model Tag {
-  id       Int    @id @default(autoincrement())
+  id      Int       @id @default(autoincrement())
   name    String
+  Product Product[]
+}
+
+model Product {
+  id             Int            @id @default(autoincrement())
+  title          String         @db.VarChar(128)
+  price          Int            @default(0)
+  description    String         @default("") @db.VarChar(1000)
+  amount         Int            @default(1)
+  shop_id        Int?
+  tag_id         Int?
+  tag            Tag?           @relation(fields: [tag_id], references: [id], onDelete: SetNull)
+  discount       Int?
+  discount_start DateTime?
+  discount_end   DateTime?
+  created_at     DateTime       @default(now())
+  updated_at     DateTime?      @updatedAt
+  Love           Love[]
+  ProductMedia   ProductMedia[]
+
+  @@index([title], type: Hash)
+}
+
+model Love {
+  id         Int      @id @default(autoincrement())
+  user_id    Int?
+  product_id Int?
+  product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  created_at DateTime @default(now())
+
+  @@index([product_id], type: Hash)
+}
+
+model ProductMedia {
+  id         Int      @id @default(autoincrement())
+  url        String   @db.VarChar(512)
+  product_id Int?
+  product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  sequence   Int?     @default(0)
+
+  @@index([product_id], type: Hash)
 }

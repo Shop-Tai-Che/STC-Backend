@@ -1,0 +1,54 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: api-gateway
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+      
+  auth:
+    build:
+      context: ../AuthService
+      dockerfile: Dockerfile
+    image: auth
+    container_name: auth
+    ports:
+      - "4000:4000"
+      
+  product:
+    build:
+      context: ../ProductService
+      dockerfile: Dockerfile
+    image: product
+    container_name: product
+    ports:
+      - "5000:5000"
+      
+  order:
+    build:
+      context: ../OrderService
+      dockerfile: Dockerfile
+    image: order
+    container_name: order
+    ports:
+      - "5001:5001"
+
+  feedback:
+    build:
+      context: ../FeedbackService
+      dockerfile: Dockerfile
+    image: feedback
+    container_name: feedback
+    ports:
+      - "3003:3003"
+      
+  admin:
+    build:
+      context: ../AdminService
+      dockerfile: Dockerfile
+    image: admin
+    container_name: admin
+    ports:
+      - "8000:8000"

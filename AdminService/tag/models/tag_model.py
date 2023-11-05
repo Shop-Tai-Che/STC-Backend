@@ -11,5 +11,7 @@ class Tag(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
 
+    products = relationship("Product", back_populates="tag")
+
     def __str__(self):
         return self.name
