@@ -12,8 +12,8 @@ services:
     build:
       context: ../AuthService
       dockerfile: Dockerfile
-    image: auth
     container_name: auth
+    hostname: auth
     ports:
       - "4000:4000"
       
@@ -21,16 +21,18 @@ services:
     build:
       context: ../ProductService
       dockerfile: Dockerfile
-    image: product
+    hostname: product
     container_name: product
     ports:
       - "5000:5000"
+    volumes:
+      - ../source:/usr/src/app
       
   order:
     build:
       context: ../OrderService
       dockerfile: Dockerfile
-    image: order
+    hostname: order
     container_name: order
     ports:
       - "5001:5001"
@@ -39,7 +41,7 @@ services:
     build:
       context: ../FeedbackService
       dockerfile: Dockerfile
-    image: feedback
+    hostname: feedback
     container_name: feedback
     ports:
       - "5002:5002"
@@ -48,7 +50,7 @@ services:
     build:
       context: ../AdminService
       dockerfile: Dockerfile
-    image: admin
+    hostname: admin
     container_name: admin
     ports:
       - "8000:8000"
