@@ -3,6 +3,7 @@ const AppError = require('../utils/appError');
 const prisma = require('../prisma/prisma');
 
 exports.getAll = catchAsync(async (req, res, next) => {
+    const USER_ID = 2
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
 
@@ -15,6 +16,7 @@ exports.getAll = catchAsync(async (req, res, next) => {
         },
         include: {
             tag: true,
+            Love: true,
             ProductMedia: {
                 select: {
                     url: true,
@@ -29,9 +31,17 @@ exports.getAll = catchAsync(async (req, res, next) => {
         take: pageSize
     });
 
+    const data = products.map(item => {
+        const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === USER_ID);
+        return {
+            ...item,
+            tag_id: undefined,
+            Love: undefined,
+            isLoved
+        };
+    });
     res.status(200).json({
-        status: 'success',
-        data: products,
+        data,
         page,
         pageSize,
         total
@@ -39,6 +49,7 @@ exports.getAll = catchAsync(async (req, res, next) => {
 })
 
 exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
+    const USER_ID = 2
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
 
@@ -46,6 +57,7 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
         const products = await prisma.product.findMany({
             include: {
                 tag: true,
+                Love: true,
                 ProductMedia: {
                     select: {
                         url: true,
@@ -64,9 +76,18 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
             return b._count.Love - a._count.Love;
         });
 
+        const data = products.map(item => {
+            const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === USER_ID);
+            return {
+                ...item,
+                tag_id: undefined,
+                Love: undefined,
+                isLoved
+            };
+        });
+
         res.status(200).json({
-            status: 'success',
-            data: products,
+            data,
             page,
             pageSize
         });
@@ -96,8 +117,9 @@ exports.getById = catchAsync(async (req, res, next) => {
             },
         });
 
+        product.tag_id = undefined
+
         res.status(200).json({
-            status: 'success',
             data: product,
         });
     } catch (e) {

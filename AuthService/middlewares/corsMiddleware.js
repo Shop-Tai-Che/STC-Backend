@@ -6,7 +6,7 @@ exports.corsMiddleware = catchAsync(async (req, res, next) => {
     const referer = req.headers.referer || '';
     const origin = req.headers.origin;
     const allowedCors = allowedOrigins.some((element) =>
-        referer.some(element)
+        referer.startsWith(element)
     );
     if (allowedCors) {
         res.setHeader('Access-Control-Allow-Origin', origin);
