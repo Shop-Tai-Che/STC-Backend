@@ -25,7 +25,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="ShopTaiChe Admin")
 
 authentication_backend = AdminAuth(
-    secret_key="29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1")
+    secret_key=settings.SECRET_KEY_ADMIN)
 admin = AdminBackend(
     app, engine, authentication_backend=authentication_backend)
 admin.add_view(TagAdmin)

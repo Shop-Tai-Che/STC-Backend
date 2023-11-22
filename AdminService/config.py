@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     
     MJ_APIKEY_PUBLIC: str = os.getenv("MJ_APIKEY_PUBLIC", "")
     MJ_APIKEY_PRIVATE: str = os.getenv("MJ_APIKEY_PRIVATE", "")
+    SECRET_KEY_ADMIN: str = os.getenv("SECRET_KEY_ADMIN", "")
 
     class Config:
         env_file = "/.env"
