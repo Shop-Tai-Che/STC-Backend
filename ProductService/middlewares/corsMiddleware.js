@@ -5,8 +5,8 @@ const catchAsync = require("../utils/catchAsync");
 exports.corsMiddleware = catchAsync(async (req, res, next) => {
     const referer = req.headers.referer || '';
     const origin = req.headers.origin;
-    const allowedCors = allowedOrigins.some((element) =>
-        referer.some(element)
+    const allowedCors = allowedOrigins?.some((element) =>
+        referer?.some(element)
     );
     if (allowedCors) {
         res.setHeader('Access-Control-Allow-Origin', origin);

@@ -21,6 +21,7 @@ class Product(Base):
     tag = relationship("Tag", back_populates="products")
     loves = relationship("Love", back_populates="product")
     images = relationship("ProductMedia", back_populates="product")
+    orders = relationship("Order", back_populates="product")
 
     created_at = Column(
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
