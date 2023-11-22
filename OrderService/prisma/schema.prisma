@@ -61,12 +61,12 @@ model Order {
   shop_id        Int?
   amount         Int            @default(1)
   ship_fee       Int            @default(20000)
+  total_price    Int            @default(0)
   payment_method PAYMENT_METHOD @default(CASH)
   address        String         @db.VarChar(256)
   note           String?        @db.VarChar(256)
   status         ORDER_STATUS   @default(PROCESSING)
   created_at     DateTime       @default(now())
-  total_price    Int            @default(0)
   Product        Product        @relation(fields: [product_id], references: [id])
 
   @@index([user_id], type: Hash)
