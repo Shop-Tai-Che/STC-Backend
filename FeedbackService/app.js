@@ -7,6 +7,9 @@ const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController')
+const reviewRoutes = require('./routes/reviewRoute')
+const replyRoutes = require('./routes/replyRoute')
+const loveRoutes = require('./routes/loveRoute')
 
 const limiter = rateLimit({
   // limiter is now become a middleware function
@@ -15,14 +18,25 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try this again in an hour!',
 }); // define how many requests per IP we are going to allow in a certain of time
 
+const corsOptions = {
+  origin: '*',
+  credentials: false,
+  optionSuccessStatus: 200
+}
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 // app.use(limiter);
 
 app.use(express.json({ limit: '10mb' }));
+
+// API
+app.use('/api/v1/review', reviewRoutes)
+app.use('/api/v1/reply', replyRoutes)
+app.use('/api/v1/love', loveRoutes)
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))

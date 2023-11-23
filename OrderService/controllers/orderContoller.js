@@ -89,14 +89,29 @@ exports.createOrder = catchAsync(async (req, res, next) => {
     })
 
     if (product?.amount <= 0) {
-        res.status(501).json({
+        return res.status(501).json({
             error: 'Out of stock'
         });
     }
 
+    if (!data.ship_fee) data.ship_fee = 20000
+
+    data.total_price = data.ship_fee + data.amount * product.price
+
     const order = await prisma.order.create({
         data
     })
+
+    await prisma.product.update({
+        where: {
+            id: data.product_id
+        },
+        data: {
+            amount: {
+                decrement: 1
+            }
+        }
+    });
 
     res.status(200).json({
         order
