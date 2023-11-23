@@ -72,6 +72,41 @@ model Order {
   @@index([user_id], type: Hash)
 }
 
+model Review {
+  id          Int           @id @default(autoincrement())
+  user_id     Int
+  product_id  Int
+  rating      Int           @default(5)
+  comment     String?       @db.VarChar(1024)
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @default(now())
+  Reply       Reply[]
+  ReviewMedia ReviewMedia[]
+
+  @@index([product_id], type: Hash)
+}
+
+model ReviewMedia {
+  id        Int     @id @default(autoincrement())
+  url       String  @db.VarChar(512)
+  review_id Int?
+  review    Review? @relation(fields: [review_id], references: [id], onDelete: Cascade)
+
+  @@index([review_id], type: Hash)
+}
+
+model Reply {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  review_id  Int
+  comment    String?  @db.VarChar(1024)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  Review     Review   @relation(fields: [review_id], references: [id], onDelete: Cascade)
+
+  @@index([review_id], type: Hash)
+}
+
 enum ORDER_STATUS {
   PROCESSING
   DELIVERING

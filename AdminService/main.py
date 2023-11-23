@@ -18,17 +18,21 @@ from admin.models.tag_admin_model import TagAdmin
 from admin.models.product_admin_model import ProductAdmin
 from admin.models.love_admin_model import LoveAdmin
 from admin.models.product_media_admin_model import ProductMediaAdmin
+from admin.models.order_admin_model import OrderAdmin
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="ShopTaiChe Admin")
 
-authentication_backend = AdminAuth(secret_key="29050fe68c6509b99c14b53faae016b1f8bcd73021b69f037fa0d85ec43cf5c1")
-admin = AdminBackend(app, engine, authentication_backend=authentication_backend)
+authentication_backend = AdminAuth(
+    secret_key=settings.SECRET_KEY_ADMIN)
+admin = AdminBackend(
+    app, engine, authentication_backend=authentication_backend)
 admin.add_view(TagAdmin)
 admin.add_view(ProductAdmin)
 admin.add_view(ProductMediaAdmin)
 admin.add_view(LoveAdmin)
+admin.add_view(OrderAdmin)
 
 app.add_middleware(ExceptionMiddleware)
 
@@ -40,7 +44,7 @@ firebase_admin.initialize_app(
     },
 )
 
-    
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
