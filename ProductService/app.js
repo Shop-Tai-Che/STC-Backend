@@ -27,7 +27,7 @@ const corsOptions = {
 
 const app = express();
 app.use(cors(corsOptions));
-app.use(corsMiddleware)
+//app.use(corsMiddleware)
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());

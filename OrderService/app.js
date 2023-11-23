@@ -15,12 +15,20 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try this again in an hour!',
 }); // define how many requests per IP we are going to allow in a certain of time
 
+const corsOptions = {
+  origin: '*',
+  credentials: false,
+  optionSuccessStatus: 200
+}
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
+//app.use(corsMiddleware)
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 // app.use(limiter);
+
 
 app.use(express.json({ limit: '10mb' }));
 
