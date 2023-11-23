@@ -14,7 +14,7 @@ mongoose
 });
 
 const server = app.listen(port, () => {
-    console.log(`Product service is running on port ${port}...`);
+    console.log(`Feedback service is running on port ${port}...`);
 });
 
 // SOCKET

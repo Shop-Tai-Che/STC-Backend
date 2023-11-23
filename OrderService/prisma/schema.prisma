@@ -61,15 +61,38 @@ model Order {
   shop_id        Int?
   amount         Int            @default(1)
   ship_fee       Int            @default(20000)
-  total_price    Int            @default(0)
   payment_method PAYMENT_METHOD @default(CASH)
   address        String         @db.VarChar(256)
   note           String?        @db.VarChar(256)
   status         ORDER_STATUS   @default(PROCESSING)
   created_at     DateTime       @default(now())
+  total_price    Int            @default(0)
   Product        Product        @relation(fields: [product_id], references: [id])
 
   @@index([user_id], type: Hash)
+}
+
+model Review {
+  id          Int           @id @default(autoincrement())
+  user_id     Int
+  product_id  Int
+  rating      Int           @default(5)
+  comment     String?       @db.VarChar(1024)
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @default(now())
+  ReviewMedia ReviewMedia[]
+  Reply       Reply[]
+
+  @@index([product_id], type: Hash)
+}
+
+model ReviewMedia {
+  id        Int     @id @default(autoincrement())
+  url       String  @db.VarChar(512)
+  review_id Int?
+  review    Review? @relation(fields: [review_id], references: [id], onDelete: Cascade)
+
+  @@index([review_id], type: Hash)
 }
 
 enum ORDER_STATUS {
@@ -82,4 +105,29 @@ enum ORDER_STATUS {
 
 enum PAYMENT_METHOD {
   CASH
+}
+
+enum order_status {
+  PROCESSING
+  DELIVERING
+  WAIT_FOR_PAYMENT
+  SUCCESS
+  CANCELED
+}
+
+enum payment_method {
+  CASH
+}
+
+model Reply {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  review_id  Int
+  comment    String?  @db.VarChar(1024)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  review Review? @relation(fields: [review_id], references: [id], onDelete: Cascade)
+
+  @@index([review_id], type: Hash)
 }
