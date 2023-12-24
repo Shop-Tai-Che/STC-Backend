@@ -117,3 +117,19 @@ exports.createOrder = catchAsync(async (req, res, next) => {
         order
     });
 })
+
+exports.updateOrderStatus = async (req, res) => {
+    try {
+        const orderId = +req.params.id
+        const { newStatus } = req.body;
+
+        const updatedOrder = await prisma.order.update({
+            where: { id: orderId },
+            data: { status: newStatus },
+        });
+
+        res.status(200).json({ updatedOrder });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

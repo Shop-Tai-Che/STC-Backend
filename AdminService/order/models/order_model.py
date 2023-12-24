@@ -29,6 +29,8 @@ class Order(Base):
     total_price = Column(Integer, default=0)
     payment_method = Column(Enum(PAYMENT_METHOD), default=PAYMENT_METHOD.CASH)
     address = Column(String(256))
+    name = Column(String(50), nullable=True)
+    phone = Column(String(15), nullable=True)
     note = Column(String(256), nullable=True)
     status = Column(Enum(ORDER_STATUS), default=ORDER_STATUS.PROCESSING)
 

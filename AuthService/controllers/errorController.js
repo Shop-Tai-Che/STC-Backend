@@ -55,9 +55,9 @@ module.exports = (err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
 
-    if (process.env.NODE_ENV.trim() === 'development') {
+    if (process.env.NODE_ENV?.trim() === 'development') {
         sendErrorDev(err, req, res);
-    } else if (process.env.NODE_ENV.trim() === 'production') {
+    } else if (process.env.NODE_ENV?.trim() === 'production') {
 
         let error = Object.defineProperties(err, {
             [Object.keys(err)]: {

@@ -1,6 +1,9 @@
 from fastapi import Depends, Request
 from sqladmin import ModelView
 from product.models.product_model import Product
+from user.models.user_model import User
+from database import get_db
+
 
 class ProductAdmin(ModelView, model=Product):
     name = "Product"
@@ -18,8 +21,9 @@ class ProductAdmin(ModelView, model=Product):
     column_sortable_list = [Product.id, Product.title]
 
     column_list = [Product.id, Product.title, Product.price, Product.tag]
-    form_excluded_columns = [Product.created_at, Product.updated_at, Product.loves, Product.images]
-    
+    form_excluded_columns = [Product.created_at, Product.updated_at,
+                             Product.loves, Product.images, Product.orders]
+
     column_labels = {
         'id': 'ID',
         'title': 'Title',
@@ -32,5 +36,5 @@ class ProductAdmin(ModelView, model=Product):
         "discount_start": "Discount start",
         "discount_end": "Discount end",
         "tag": "Tag",
+        'User': 'Shop'
     }
-

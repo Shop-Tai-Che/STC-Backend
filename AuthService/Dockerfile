@@ -13,6 +13,9 @@ RUN npm install
 # Sao chép tất cả các tệp trong dự án của bạn vào thư mục làm việc
 COPY . .
 
+RUN npx prisma db pull
+RUN npx prisma generate
+
 # Mở cổng 3000 để ứng dụng có thể lắng nghe yêu cầu HTTP
 EXPOSE 4000
 

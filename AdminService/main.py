@@ -19,6 +19,8 @@ from admin.models.product_admin_model import ProductAdmin
 from admin.models.love_admin_model import LoveAdmin
 from admin.models.product_media_admin_model import ProductMediaAdmin
 from admin.models.order_admin_model import OrderAdmin
+from admin.models.user_admin_model import UserAdmin
+from admin.models.shop_info_admin_model import ShopInfoAdmin
 
 Base.metadata.create_all(bind=engine)
 
@@ -33,6 +35,8 @@ admin.add_view(ProductAdmin)
 admin.add_view(ProductMediaAdmin)
 admin.add_view(LoveAdmin)
 admin.add_view(OrderAdmin)
+admin.add_view(UserAdmin)
+admin.add_view(ShopInfoAdmin)
 
 app.add_middleware(ExceptionMiddleware)
 

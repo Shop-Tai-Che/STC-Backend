@@ -7,58 +7,13 @@ datasource db {
   url      = "postgresql://default:root@54.251.11.200:5432/shoptaiche"
 }
 
-model Tag {
-  id      Int       @id @default(autoincrement())
-  name    String
-  Product Product[]
-}
-
-model Product {
-  id                    Int            @id @default(autoincrement())
-  title                 String         @db.VarChar(128)
-  price                 Int            @default(0)
-  description           String         @default("") @db.VarChar(10000)
-  amount                Int            @default(1)
-  tag_id                Int?
-  discount              Int?
-  discount_start        DateTime?
-  discount_end          DateTime?
-  created_at            DateTime       @default(now())
-  updated_at            DateTime?      @updatedAt
-  manufactoring_process String         @default("") @db.VarChar(10000)
-  has_sold              Int            @default(0)
-  is_verified           Boolean        @default(false)
-  ship_fee              Int            @default(20000)
-  views                 Int            @default(0)
-  violation             String?
-  shop_id               Int?
-  Love                  Love[]
-  Order                 Order[]
-  User                  User?          @relation(fields: [shop_id], references: [id])
-  tag                   Tag?           @relation(fields: [tag_id], references: [id])
-  ProductMedia          ProductMedia[]
-  Review                Review[]
-
-  @@index([title], type: Hash)
-}
-
 model Love {
   id         Int      @id @default(autoincrement())
   product_id Int?
   created_at DateTime @default(now())
   user_id    Int?
-  product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  Product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
   User       User?    @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@index([product_id], type: Hash)
-}
-
-model ProductMedia {
-  id         Int      @id @default(autoincrement())
-  url        String   @db.VarChar(512)
-  product_id Int?
-  sequence   Int?     @default(0)
-  product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
 
   @@index([product_id], type: Hash)
 }
@@ -82,6 +37,45 @@ model Order {
   User           User           @relation(fields: [user_id], references: [id])
 
   @@index([user_id], type: Hash)
+}
+
+model Product {
+  id                    Int            @id @default(autoincrement())
+  title                 String         @db.VarChar(128)
+  price                 Int            @default(0)
+  description           String         @default("") @db.VarChar(10000)
+  amount                Int            @default(1)
+  tag_id                Int?
+  discount              Int?
+  discount_start        DateTime?
+  discount_end          DateTime?
+  created_at            DateTime       @default(now())
+  updated_at            DateTime?
+  manufactoring_process String         @default("") @db.VarChar(10000)
+  has_sold              Int            @default(0)
+  is_verified           Boolean        @default(false)
+  ship_fee              Int            @default(20000)
+  views                 Int            @default(0)
+  violation             String?
+  shop_id               Int?
+  Love                  Love[]
+  Order                 Order[]
+  User                  User?          @relation(fields: [shop_id], references: [id])
+  Tag                   Tag?           @relation(fields: [tag_id], references: [id])
+  ProductMedia          ProductMedia[]
+  Review                Review[]
+
+  @@index([title], type: Hash)
+}
+
+model ProductMedia {
+  id         Int      @id @default(autoincrement())
+  url        String   @db.VarChar(512)
+  product_id Int?
+  sequence   Int?     @default(0)
+  Product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
+
+  @@index([product_id], type: Hash)
 }
 
 model Reply {
@@ -122,16 +116,10 @@ model ReviewMedia {
   @@index([review_id], type: Hash)
 }
 
-model ShopInfo {
-  id       Int     @id @default(autoincrement())
-  name     String? @db.VarChar(100)
-  avatar   String? @db.VarChar(1024)
-  active   Boolean @default(true)
-  address  String? @db.VarChar(1024)
-  phone    String? @db.VarChar(15)
-  tax_code String? @db.VarChar(50)
-  user_id  Int
-  User     User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+model Tag {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Product Product[]
 }
 
 model User {
@@ -149,6 +137,18 @@ model User {
   Reply      Reply[]
   Review     Review[]
   ShopInfo   ShopInfo[]
+}
+
+model ShopInfo {
+  id       Int     @id @default(autoincrement())
+  name     String? @db.VarChar(100)
+  avatar   String? @db.VarChar(1024)
+  active   Boolean @default(true)
+  address  String? @db.VarChar(1024)
+  phone    String? @db.VarChar(15)
+  tax_code String? @db.VarChar(50)
+  user_id  Int
+  User     User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
 
 enum ORDER_STATUS {

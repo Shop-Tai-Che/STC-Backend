@@ -8,10 +8,11 @@ class Love(Base):
     __tablename__ = "Love"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, nullable=True)
+    user_id = Column(Integer, ForeignKey('User.id'), nullable=True)
     product_id = Column(Integer, ForeignKey('Product.id'), nullable=True)
 
     product = relationship("Product", back_populates="loves")
+    User = relationship("User", back_populates="Love")
 
     created_at = Column(
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")

@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = "postgresql://default:root@54.251.11.200:5432/shoptaiche"
+  url      = "postgresql://default:root@54.251.11.200:5432/shoptaiche"
 }
 
 model Tag {
@@ -14,32 +14,41 @@ model Tag {
 }
 
 model Product {
-  id             Int            @id @default(autoincrement())
-  title          String         @db.VarChar(128)
-  price          Int            @default(0)
-  description    String         @default("") @db.VarChar(10000)
-  amount         Int            @default(1)
-  shop_id        Int?
-  tag_id         Int?
-  discount       Int?
-  discount_start DateTime?
-  discount_end   DateTime?
-  created_at     DateTime       @default(now())
-  updated_at     DateTime?      @updatedAt
-  Love           Love[]
-  Order          Order[]
-  tag            Tag?           @relation(fields: [tag_id], references: [id])
-  ProductMedia   ProductMedia[]
+  id                    Int            @id @default(autoincrement())
+  title                 String         @db.VarChar(128)
+  price                 Int            @default(0)
+  description           String         @default("") @db.VarChar(10000)
+  amount                Int            @default(1)
+  tag_id                Int?
+  discount              Int?
+  discount_start        DateTime?
+  discount_end          DateTime?
+  created_at            DateTime       @default(now())
+  updated_at            DateTime?      @updatedAt
+  manufactoring_process String         @default("") @db.VarChar(10000)
+  has_sold              Int            @default(0)
+  is_verified           Boolean        @default(false)
+  ship_fee              Int            @default(20000)
+  views                 Int            @default(0)
+  violation             String?
+  shop_id               Int?
+  Love                  Love[]
+  Order                 Order[]
+  User                  User?          @relation(fields: [shop_id], references: [id])
+  tag                   Tag?           @relation(fields: [tag_id], references: [id])
+  ProductMedia          ProductMedia[]
+  Review                Review[]
 
   @@index([title], type: Hash)
 }
 
 model Love {
   id         Int      @id @default(autoincrement())
-  user_id    Int?
   product_id Int?
   created_at DateTime @default(now())
+  user_id    Int?
   product    Product? @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  User       User?    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([product_id], type: Hash)
 }
@@ -56,32 +65,37 @@ model ProductMedia {
 
 model Order {
   id             Int            @id @default(autoincrement())
-  user_id        Int
   product_id     Int
-  shop_id        Int?
+  shop_id        String?
   amount         Int            @default(1)
   ship_fee       Int            @default(20000)
   payment_method PAYMENT_METHOD @default(CASH)
   address        String         @db.VarChar(256)
+  name           String?        @db.VarChar(50)
+  phone          String?        @db.VarChar(15)
   note           String?        @db.VarChar(256)
   status         ORDER_STATUS   @default(PROCESSING)
   created_at     DateTime       @default(now())
   total_price    Int            @default(0)
+  user_id        Int
   Product        Product        @relation(fields: [product_id], references: [id])
+  User           User           @relation(fields: [user_id], references: [id])
 
   @@index([user_id], type: Hash)
 }
 
 model Review {
   id          Int           @id @default(autoincrement())
-  user_id     Int
   product_id  Int
   rating      Int           @default(5)
   comment     String?       @db.VarChar(1024)
   created_at  DateTime      @default(now())
   updated_at  DateTime      @default(now())
-  ReviewMedia ReviewMedia[]
+  user_id     Int
   Reply       Reply[]
+  Product     Product       @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  User        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  ReviewMedia ReviewMedia[]
 
   @@index([product_id], type: Hash)
 }
@@ -95,8 +109,51 @@ model ReviewMedia {
   @@index([review_id], type: Hash)
 }
 
+model Reply {
+  id         Int      @id @default(autoincrement())
+  review_id  Int
+  comment    String?  @db.VarChar(1024)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  user_id    Int
+  review     Review   @relation(fields: [review_id], references: [id], onDelete: Cascade)
+  User       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([review_id], type: Hash)
+}
+
+model ShopInfo {
+  id       Int     @id @default(autoincrement())
+  name     String? @db.VarChar(100)
+  avatar   String? @db.VarChar(1024)
+  active   Boolean @default(true)
+  address  String? @db.VarChar(1024)
+  phone    String? @db.VarChar(15)
+  tax_code String? @db.VarChar(50)
+  user_id  Int
+  User     User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id         Int        @id @default(autoincrement())
+  phone      String?    @db.VarChar(15)
+  name       String?    @db.VarChar(100)
+  zalo_id    String?    @unique @db.VarChar(255)
+  avatar     String?    @db.VarChar(1024)
+  active     Boolean    @default(true)
+  created_at DateTime   @default(now())
+  updated_at DateTime   @default(now())
+  Love       Love[]
+  Order      Order[]
+  Product    Product[]
+  Reply      Reply[]
+  Review     Review[]
+  ShopInfo   ShopInfo[]
+}
+
 enum ORDER_STATUS {
   PROCESSING
+  CONFIRM_ORDER
   DELIVERING
   WAIT_FOR_PAYMENT
   SUCCESS
@@ -109,6 +166,7 @@ enum PAYMENT_METHOD {
 
 enum order_status {
   PROCESSING
+  CONFIRM_ORDER
   DELIVERING
   WAIT_FOR_PAYMENT
   SUCCESS
@@ -117,17 +175,4 @@ enum order_status {
 
 enum payment_method {
   CASH
-}
-
-model Reply {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
-  review_id  Int
-  comment    String?  @db.VarChar(1024)
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
-
-  review Review? @relation(fields: [review_id], references: [id], onDelete: Cascade)
-
-  @@index([review_id], type: Hash)
 }

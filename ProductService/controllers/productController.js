@@ -3,7 +3,7 @@ const AppError = require('../utils/appError');
 const prisma = require('../prisma/prisma');
 
 exports.getAll = catchAsync(async (req, res, next) => {
-    const USER_ID = 2
+    const userId = req.query.user_id ? parseInt(req.query.user_id) : 0;
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
 
@@ -32,7 +32,7 @@ exports.getAll = catchAsync(async (req, res, next) => {
     });
 
     const data = products.map(item => {
-        const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === USER_ID);
+        const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === userId);
         return {
             ...item,
             tag_id: undefined,
@@ -49,8 +49,56 @@ exports.getAll = catchAsync(async (req, res, next) => {
     });
 })
 
+exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
+    const shopId = req.query.shop_id ? parseInt(req.query.shop_id) : 0;
+    const page = req.query.page ? parseInt(req.query.page) : 0;
+    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
+
+    const filteredProducts = await prisma.product.findMany();
+    const total = filteredProducts.length;
+
+    const products = await prisma.product.findMany({
+        where: {
+            shop_id: shopId
+        },
+        orderBy: {
+            created_at: 'desc'
+        },
+        include: {
+            tag: true,
+            Love: true,
+            ProductMedia: {
+                select: {
+                    url: true,
+                    sequence: true,
+                }
+            },
+            _count: {
+                select: { Love: true },
+            },
+        },
+        skip: page * pageSize,
+        take: pageSize
+    });
+
+    const data = products.map(item => {
+        return {
+            ...item,
+            tag_id: undefined,
+            Love: undefined
+        };
+    });
+
+    res.status(200).json({
+        data,
+        page,
+        pageSize,
+        total
+    });
+})
+
 exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
-    const USER_ID = 2
+    const userId = req.query.user_id ? parseInt(req.query.user_id) : 0;
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
 
@@ -78,7 +126,7 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
         });
 
         const data = products.map(item => {
-            const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === USER_ID);
+            const isLoved = item.Love && item.Love.some(loveItem => loveItem.user_id === userId);
             return {
                 ...item,
                 tag_id: undefined,
