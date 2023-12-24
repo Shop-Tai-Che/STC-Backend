@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_POSTGRE")
+  url = "postgresql://default:root@54.251.11.200:5432/shoptaiche"
 }
 
 model Tag {

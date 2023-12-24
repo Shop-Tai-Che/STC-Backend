@@ -40,6 +40,7 @@ exports.getAll = catchAsync(async (req, res, next) => {
             isLoved
         };
     });
+
     res.status(200).json({
         data,
         page,

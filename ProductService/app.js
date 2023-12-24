@@ -34,6 +34,29 @@ app.use(hpp());
 
 app.use(express.json({ limit: '10mb' }));
 
+const allowedReferers = [
+  'https://h5.zdn.vn/zapps/',
+  'zbrowser://h5.zdn.vn/zapps/'
+];
+
+//app.use((req, res, next) => {
+//  const referer = req.headers.referer || '';
+//  const origin = req.headers.origin;
+//  console.log(referer)
+//  console.log(origin) 
+//  const allowedCors = allowedReferers.some((element) =>
+//    referer.startsWith(element)
+//  );
+//  console.log(allowedCors)
+  //if (allowedCors) {
+//  res.setHeader('Access-Control-Allow-Origin', origin);
+//  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  //}
+//  console.log('Request headers:', req.headers);
+//  return next();
+    //return res.status(200).json({"a":"a"})
+//});
+
 // API
 app.use('/api/v1/product', productRoutes)
 
