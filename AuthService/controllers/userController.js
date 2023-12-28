@@ -20,7 +20,7 @@ exports.getUserByZaloId = catchAsync(async (req, res, next) => {
                 }
             }
         })
-        
+
         res.status(200).json(user);
     } catch (e) {
         return res.status(404).json("Not found")
@@ -30,9 +30,21 @@ exports.getUserByZaloId = catchAsync(async (req, res, next) => {
 exports.createUser = catchAsync(async (req, res, next) => {
     const data = req.body
 
-    const user = await prisma.user.create({
-        data
-    })
+    try {
+        let user = await prisma.user.findFirst({
+            where: {
+                zalo_id: data.zalo_id
+            }
+        })
 
-    res.status(200).json(user);
+        if (!user) {
+            user = await prisma.user.create({
+                data
+            })
+        }
+
+        res.status(200).json(user);
+    } catch (e) {
+        res.status(500).json(e);
+    }
 })
