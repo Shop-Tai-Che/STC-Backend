@@ -11,7 +11,13 @@ const userRoutes = require('./routes/userRoute')
 const shopRoutes = require('./routes/shopRoute')
 
 const { corsMiddleware } = require('./middlewares/corsMiddleware');
-const corsOptions = require('./configs/corsOptions');
+// const corsOptions = require('./configs/corsOptions');
+
+const corsOptions = {
+  origin: '*',
+  credentials: false,
+  optionSuccessStatus: 200
+}
 
 const limiter = rateLimit({
   // limiter is now become a middleware function
