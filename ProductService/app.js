@@ -61,7 +61,7 @@ const allowedReferers = [
 app.use('/api/v1/product', productRoutes)
 
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 400))
 })
 app.use(globalErrorHandler)
 

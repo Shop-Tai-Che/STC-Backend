@@ -37,7 +37,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use('/api/v1/order', orderRoutes)
 
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 400))
 })
 app.use(globalErrorHandler)
 

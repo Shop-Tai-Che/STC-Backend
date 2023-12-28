@@ -33,7 +33,7 @@ app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/shop', shopRoutes)
 
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 400))
 })
 app.use(globalErrorHandler)
 
