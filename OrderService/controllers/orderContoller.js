@@ -131,40 +131,45 @@ exports.getOrderById = catchAsync(async (req, res, next) => {
 exports.createOrder = catchAsync(async (req, res, next) => {
     const data = req.body
 
-    const product = await prisma.product.findFirstOrThrow({
-        where: {
-            id: data.product_id
-        }
-    })
-
-    if (product?.amount <= 0) {
-        return res.status(501).json({
-            error: 'Out of stock'
-        });
-    }
-
-    if (!data.ship_fee) data.ship_fee = 20000
-
-    data.total_price = data.ship_fee + data.amount * product.price
-
-    const order = await prisma.order.create({
-        data
-    })
-
-    await prisma.product.update({
-        where: {
-            id: data.product_id
-        },
-        data: {
-            amount: {
-                decrement: 1
+    try {
+        const product = await prisma.product.findFirstOrThrow({
+            where: {
+                id: data.product_id
             }
-        }
-    });
+        })
 
-    res.status(200).json({
-        order
-    });
+        if (product?.amount <= 0) {
+            return res.status(501).json({
+                error: 'Out of stock'
+            });
+        }
+
+        if (!data.ship_fee) data.ship_fee = 20000
+
+        data.total_price = data.ship_fee + data.amount * product.price
+
+        const order = await prisma.order.create({
+            data
+        })
+
+        await prisma.product.update({
+            where: {
+                id: data.product_id
+            },
+            data: {
+                amount: {
+                    decrement: 1
+                }
+            }
+        });
+
+        res.status(200).json({
+            order
+        });
+    } catch (e) {
+        console.log(e)
+        res.status(500).json(e);
+    }
 })
 
 exports.updateOrderStatus = async (req, res) => {
