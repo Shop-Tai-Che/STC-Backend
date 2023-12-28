@@ -5,20 +5,24 @@ const prisma = require('../prisma/prisma');
 exports.getUserByZaloId = catchAsync(async (req, res, next) => {
     const zaloId = req?.params?.id || ''
 
-    const user = await prisma.user.findFirstOrThrow({
-        where: {
-            zalo_id: zaloId
-        },
-        include: {
-            ShopInfo: {
-                select: {
-                    name: true,
-                    avatar: true,
-                    active: true
+    try {
+        const user = await prisma.user.findFirstOrThrow({
+            where: {
+                zalo_id: zaloId
+            },
+            include: {
+                ShopInfo: {
+                    select: {
+                        name: true,
+                        avatar: true,
+                        active: true
+                    }
                 }
             }
-        }
-    })
+        })
+    } catch (e) {
+        return res.status(404).json("Not found")
+    }
 
     res.status(200).json(user);
 })
