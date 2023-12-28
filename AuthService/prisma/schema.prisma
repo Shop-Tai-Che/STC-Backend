@@ -131,6 +131,7 @@ model User {
   active     Boolean    @default(true)
   created_at DateTime   @default(now())
   updated_at DateTime   @default(now())
+  is_seller  Boolean    @default(false)
   Love       Love[]
   Order      Order[]
   Product    Product[]

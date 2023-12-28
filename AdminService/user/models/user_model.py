@@ -14,6 +14,7 @@ class User(Base):
     zalo_id = Column(String(255), unique=True)
     avatar = Column(String(1024), nullable=True)
     active = Column(Boolean, default=True)
+    is_seller = Column(Boolean, default=False)
 
     Product = relationship("Product", back_populates="User")
     ShopInfo = relationship("ShopInfo", back_populates="User")

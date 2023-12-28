@@ -42,23 +42,28 @@ exports.getReviewByProductId = catchAsync(async (req, res, next) => {
 exports.createReview = catchAsync(async (req, res, next) => {
     const data = req.body
 
-    const product = await prisma.product.findFirstOrThrow({
-        where: {
-            id: data.product_id
+    try {
+        const product = await prisma.product.findFirstOrThrow({
+            where: {
+                id: data.product_id
+            }
+        })
+
+        if (!product) {
+            res.status(501).json({
+                error: 'Product not found'
+            });
         }
-    })
 
-    if (!product) {
-        res.status(501).json({
-            error: 'Product not found'
+        const review = await prisma.review.create({
+            data
+        })
+
+        res.status(200).json({
+            review
         });
+    } catch (e) {
+        console.log(e)
+        res.status(500).json(e);
     }
-
-    const review = await prisma.review.create({
-        data
-    })
-
-    res.status(200).json({
-        review
-    });
 })
