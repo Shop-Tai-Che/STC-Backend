@@ -33,6 +33,16 @@ app.use(hpp());
 
 app.use(express.json({ limit: '10mb' }));
 
+const allowedOrigins = ["https://h5.zdn.vn", "zbrowser://h5.zdn.vn"];
+app.use((req, res, next) => {
+  console.log(req.headers.origin)
+  const origin = req.headers.origin || 'zbrowser://h5.zdn.vn';
+
+  res.setHeader("Access-Control-Allow-Origin", origin);
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  return next();
+});
+
 // API
 app.use('/api/v1/order', orderRoutes)
 

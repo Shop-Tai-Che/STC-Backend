@@ -34,7 +34,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
         let user = await prisma.user.findFirst({
             where: {
                 zalo_id: data.zalo_id
-            }
+            },
         })
 
         if (!user) {
@@ -42,6 +42,21 @@ exports.createUser = catchAsync(async (req, res, next) => {
                 data
             })
         }
+
+        user = await prisma.user.findFirst({
+            where: {
+                zalo_id: data.zalo_id
+            },
+            include: {
+                ShopInfo: {
+                    select: {
+                        name: true,
+                        avatar: true,
+                        active: true
+                    }
+                }
+            }
+        })
 
         res.status(200).json(user);
     } catch (e) {
