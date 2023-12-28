@@ -51,6 +51,55 @@ exports.getAllByUserId = catchAsync(async (req, res, next) => {
     });
 })
 
+exports.getAllByShopId = catchAsync(async (req, res, next) => {
+    const shopId = +req.query.shopId
+    const page = req.query.page ? parseInt(req.query.page) : 0;
+    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
+
+    const filteredOrders = await prisma.order.findMany({
+        where: {
+            shop_id: shopId
+        }
+    });
+    const total = filteredOrders.length;
+
+    let orders = await prisma.order.findMany({
+        where: {
+            shop_id: shopId
+        },
+        include: {
+            Product: {
+                select: {
+                    title: true,
+                    price: true,
+                    ProductMedia: {
+                        select: {
+                            url: true,
+                            sequence: true
+                        }
+                    }
+                }
+            },
+        },
+        skip: page * pageSize,
+        take: pageSize
+    });
+
+    orders = orders.map((e) => {
+        return {
+            ...e,
+            user_id: undefined
+        }
+    })
+
+    res.status(200).json({
+        data: orders,
+        page,
+        pageSize,
+        total
+    });
+})
+
 exports.getOrderById = catchAsync(async (req, res, next) => {
     const orderId = +req?.params?.id
 

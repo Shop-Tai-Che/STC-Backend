@@ -4,6 +4,7 @@ const orderContoller = require('../controllers/orderContoller');
 const router = express.Router();
 
 router.get('/', orderContoller.getAllByUserId);
+router.get('/shop', orderContoller.getAllByShopId);
 router.post('/', orderContoller.createOrder);
 router.get('/:id', orderContoller.getOrderById);
 router.patch('/:id', orderContoller.updateOrderStatus);
