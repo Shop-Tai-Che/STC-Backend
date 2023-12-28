@@ -20,11 +20,11 @@ exports.getUserByZaloId = catchAsync(async (req, res, next) => {
                 }
             }
         })
+        
+        res.status(200).json(user);
     } catch (e) {
         return res.status(404).json("Not found")
     }
-
-    res.status(200).json(user);
 })
 
 exports.createUser = catchAsync(async (req, res, next) => {
