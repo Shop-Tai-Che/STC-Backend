@@ -21,7 +21,7 @@ exports.getUserByZaloId = catchAsync(async (req, res, next) => {
     })
 
     if (!user) {
-        next(new AppError("Not found", 400))
+        return next(new AppError("Not found", 404))
     }
 
     res.status(200).json(user);
