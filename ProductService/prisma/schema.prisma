@@ -64,22 +64,23 @@ model ProductMedia {
 }
 
 model Order {
-  id             Int            @id @default(autoincrement())
-  product_id     Int
-  amount         Int            @default(1)
-  ship_fee       Int            @default(20000)
-  payment_method PAYMENT_METHOD @default(CASH)
-  address        String         @db.VarChar(256)
-  name           String?        @db.VarChar(50)
-  phone          String?        @db.VarChar(15)
-  note           String?        @db.VarChar(256)
-  status         ORDER_STATUS   @default(PROCESSING)
-  created_at     DateTime       @default(now())
-  total_price    Int            @default(0)
-  user_id        Int
-  shop_id        Int?
-  Product        Product        @relation(fields: [product_id], references: [id])
-  User           User           @relation(fields: [user_id], references: [id])
+  id                       Int            @id @default(autoincrement())
+  product_id               Int
+  amount                   Int            @default(1)
+  ship_fee                 Int            @default(20000)
+  payment_method           PAYMENT_METHOD @default(CASH)
+  address                  String         @db.VarChar(256)
+  name                     String?        @db.VarChar(50)
+  phone                    String?        @db.VarChar(15)
+  note                     String?        @db.VarChar(256)
+  status                   ORDER_STATUS   @default(PROCESSING)
+  created_at               DateTime       @default(now())
+  total_price              Int            @default(0)
+  user_id                  Int
+  shop_id                  Int?
+  Product                  Product        @relation(fields: [product_id], references: [id])
+  User_Order_shop_idToUser User?          @relation("Order_shop_idToUser", fields: [shop_id], references: [id])
+  User                     User           @relation(fields: [user_id], references: [id])
 
   @@index([user_id], type: Hash)
 }
@@ -135,21 +136,22 @@ model ShopInfo {
 }
 
 model User {
-  id         Int        @id @default(autoincrement())
-  phone      String?    @db.VarChar(15)
-  name       String?    @db.VarChar(100)
-  zalo_id    String?    @unique @db.VarChar(255)
-  avatar     String?    @db.VarChar(1024)
-  active     Boolean    @default(true)
-  created_at DateTime   @default(now())
-  updated_at DateTime   @default(now())
-  is_seller  Boolean    @default(false)
-  Love       Love[]
-  Order      Order[]
-  Product    Product[]
-  Reply      Reply[]
-  Review     Review[]
-  ShopInfo   ShopInfo[]
+  id                        Int        @id @default(autoincrement())
+  phone                     String?    @db.VarChar(15)
+  name                      String?    @db.VarChar(100)
+  zalo_id                   String?    @unique @db.VarChar(255)
+  avatar                    String?    @db.VarChar(1024)
+  active                    Boolean    @default(true)
+  created_at                DateTime   @default(now())
+  updated_at                DateTime   @default(now())
+  is_seller                 Boolean    @default(false)
+  Love                      Love[]
+  Order_Order_shop_idToUser Order[]    @relation("Order_shop_idToUser")
+  Order                     Order[]
+  Product                   Product[]
+  Reply                     Reply[]
+  Review                    Review[]
+  ShopInfo                  ShopInfo[]
 }
 
 enum ORDER_STATUS {
