@@ -79,8 +79,8 @@ model Order {
   user_id        Int
   shop_id        Int?
   Product        Product        @relation(fields: [product_id], references: [id])
-  User           User           @relation(fields: [user_id], references: [id])
   Shop           User?          @relation("Buy", fields: [shop_id], references: [id])
+  User           User           @relation(fields: [user_id], references: [id])
 
   @@index([user_id], type: Hash)
 }
@@ -146,8 +146,8 @@ model User {
   updated_at DateTime   @default(now())
   is_seller  Boolean    @default(false)
   Love       Love[]
+  Buy        Order[]    @relation("Buy")
   Order      Order[]
-  Buy        Order[]    @relation(name: "Buy")
   Product    Product[]
   Reply      Reply[]
   Review     Review[]

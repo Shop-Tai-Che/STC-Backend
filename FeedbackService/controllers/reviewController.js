@@ -20,7 +20,25 @@ exports.getReviewByProductId = catchAsync(async (req, res, next) => {
                     user_id: true,
                     comment: true,
                     created_at: true,
-                    updated_at: true
+                    updated_at: true,
+                    User: {
+                        select: {
+                            name: true,
+                            avatar: true,
+                            phone: true,
+                            is_seller: true,
+                            active: true
+                        }
+                    }
+                }
+            },
+            User: {
+                select: {
+                    name: true,
+                    avatar: true,
+                    phone: true,
+                    is_seller: true,
+                    active: true
                 }
             }
         }
