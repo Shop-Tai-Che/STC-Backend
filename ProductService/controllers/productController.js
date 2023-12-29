@@ -16,7 +16,17 @@ exports.getAll = catchAsync(async (req, res, next) => {
         },
         include: {
             tag: true,
-            Love: true,
+            Shop: {
+                select: {
+                    id: true,
+                    ShopInfo: true
+                }
+            },
+            Love: {
+                select: {
+                    user_id: true,
+                }
+            },
             ProductMedia: {
                 select: {
                     url: true,
@@ -36,7 +46,6 @@ exports.getAll = catchAsync(async (req, res, next) => {
         return {
             ...item,
             tag_id: undefined,
-            Love: undefined,
             isLoved
         };
     });
@@ -54,7 +63,11 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12;
 
-    const filteredProducts = await prisma.product.findMany();
+    const filteredProducts = await prisma.product.findMany({
+        where: {
+            shop_id: shopId
+        },
+    });
     const total = filteredProducts.length;
 
     const products = await prisma.product.findMany({
@@ -66,7 +79,17 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
         },
         include: {
             tag: true,
-            Love: true,
+            Shop: {
+                select: {
+                    id: true,
+                    ShopInfo: true
+                }
+            },
+            Love: {
+                select: {
+                    user_id: true
+                }
+            },
             ProductMedia: {
                 select: {
                     url: true,
@@ -85,7 +108,6 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
         return {
             ...item,
             tag_id: undefined,
-            Love: undefined
         };
     });
 
@@ -106,7 +128,17 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
         const products = await prisma.product.findMany({
             include: {
                 tag: true,
-                Love: true,
+                Shop: {
+                    select: {
+                        id: true,
+                        ShopInfo: true
+                    }
+                },
+                Love: {
+                    select: {
+                        user_id: true
+                    }
+                },
                 ProductMedia: {
                     select: {
                         url: true,
@@ -130,7 +162,6 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
             return {
                 ...item,
                 tag_id: undefined,
-                Love: undefined,
                 isLoved
             };
         });
@@ -156,13 +187,23 @@ exports.getById = catchAsync(async (req, res, next) => {
             },
             include: {
                 tag: true,
+                Shop: {
+                    select: {
+                        id: true,
+                        ShopInfo: true
+                    }
+                },
                 ProductMedia: {
                     select: {
                         url: true,
                         sequence: true,
                     }
                 },
-                Love: true
+                Love: {
+                    select: {
+                        user_id: true
+                    }
+                },
             },
         });
 

@@ -66,7 +66,6 @@ model ProductMedia {
 model Order {
   id             Int            @id @default(autoincrement())
   product_id     Int
-  shop_id        Int?
   amount         Int            @default(1)
   ship_fee       Int            @default(20000)
   payment_method PAYMENT_METHOD @default(CASH)
@@ -78,8 +77,10 @@ model Order {
   created_at     DateTime       @default(now())
   total_price    Int            @default(0)
   user_id        Int
+  shop_id        Int?
   Product        Product        @relation(fields: [product_id], references: [id])
   User           User           @relation(fields: [user_id], references: [id])
+  Shop           User?          @relation("Buy", fields: [shop_id], references: [id])
 
   @@index([user_id], type: Hash)
 }
@@ -143,8 +144,10 @@ model User {
   active     Boolean    @default(true)
   created_at DateTime   @default(now())
   updated_at DateTime   @default(now())
+  is_seller  Boolean    @default(false)
   Love       Love[]
   Order      Order[]
+  Buy        Order[]    @relation(name: "Buy")
   Product    Product[]
   Reply      Reply[]
   Review     Review[]

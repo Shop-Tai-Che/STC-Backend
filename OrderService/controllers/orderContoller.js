@@ -19,6 +19,12 @@ exports.getAllByUserId = catchAsync(async (req, res, next) => {
             user_id: userId
         },
         include: {
+            User: true,
+            Shop: {
+                select: {
+                    ShopInfo: true
+                }
+            },
             Product: {
                 select: {
                     title: true,
@@ -39,7 +45,8 @@ exports.getAllByUserId = catchAsync(async (req, res, next) => {
     orders = orders.map((e) => {
         return {
             ...e,
-            user_id: undefined
+            user_id: undefined,
+            shop_id: undefined
         }
     })
 
@@ -68,6 +75,12 @@ exports.getAllByShopId = catchAsync(async (req, res, next) => {
             shop_id: shopId
         },
         include: {
+            User: true,
+            Shop: {
+                select: {
+                    ShopInfo: true
+                }
+            },
             Product: {
                 select: {
                     title: true,
@@ -108,6 +121,12 @@ exports.getOrderById = catchAsync(async (req, res, next) => {
             id: orderId
         },
         include: {
+            User: true,
+            Shop: {
+                select: {
+                    ShopInfo: true
+                }
+            },
             Product: {
                 select: {
                     title: true,
@@ -181,6 +200,26 @@ exports.updateOrderStatus = async (req, res) => {
             where: { id: orderId },
             data: { status: newStatus },
         });
+
+        if (newStatus === 'SUCCESS') {
+            await prisma.product.update({
+                where: { id: updatedOrder.product_id },
+                data: {
+                    has_sold: {
+                        increment: 1
+                    }
+                },
+            })
+        } else if (newStatus === 'CANCELED') {
+            await prisma.product.update({
+                where: { id: updatedOrder.product_id },
+                data: {
+                    amount: {
+                        increment: 1
+                    }
+                },
+            })
+        }
 
         res.status(200).json({ updatedOrder });
     } catch (error) {

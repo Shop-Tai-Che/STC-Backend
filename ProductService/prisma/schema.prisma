@@ -34,7 +34,7 @@ model Product {
   shop_id               Int?
   Love                  Love[]
   Order                 Order[]
-  User                  User?          @relation(fields: [shop_id], references: [id])
+  Shop                  User?          @relation(fields: [shop_id], references: [id])
   tag                   Tag?           @relation(fields: [tag_id], references: [id])
   ProductMedia          ProductMedia[]
   Review                Review[]
@@ -66,18 +66,18 @@ model ProductMedia {
 model Order {
   id             Int            @id @default(autoincrement())
   product_id     Int
-  shop_id        String?
   amount         Int            @default(1)
   ship_fee       Int            @default(20000)
   payment_method PAYMENT_METHOD @default(CASH)
   address        String         @db.VarChar(256)
+  name           String?        @db.VarChar(50)
+  phone          String?        @db.VarChar(15)
   note           String?        @db.VarChar(256)
   status         ORDER_STATUS   @default(PROCESSING)
   created_at     DateTime       @default(now())
   total_price    Int            @default(0)
   user_id        Int
-  name           String?        @db.VarChar(50)
-  phone          String?        @db.VarChar(15)
+  shop_id        Int?
   Product        Product        @relation(fields: [product_id], references: [id])
   User           User           @relation(fields: [user_id], references: [id])
 
@@ -143,6 +143,7 @@ model User {
   active     Boolean    @default(true)
   created_at DateTime   @default(now())
   updated_at DateTime   @default(now())
+  is_seller  Boolean    @default(false)
   Love       Love[]
   Order      Order[]
   Product    Product[]
@@ -153,11 +154,11 @@ model User {
 
 enum ORDER_STATUS {
   PROCESSING
+  CONFIRM_ORDER
   DELIVERING
   WAIT_FOR_PAYMENT
   SUCCESS
   CANCELED
-  CONFIRM_ORDER
 }
 
 enum PAYMENT_METHOD {
@@ -166,11 +167,11 @@ enum PAYMENT_METHOD {
 
 enum order_status {
   PROCESSING
+  CONFIRM_ORDER
   DELIVERING
   WAIT_FOR_PAYMENT
   SUCCESS
   CANCELED
-  CONFIRM_ORDER
 }
 
 enum payment_method {
