@@ -33,8 +33,14 @@ exports.getAll = catchAsync(async (req, res, next) => {
                     sequence: true,
                 }
             },
+            Order: {
+                select: {
+                    user_id: true,
+                    name: true
+                }
+            },
             _count: {
-                select: { Love: true },
+                select: { Love: true, Review: true },
             },
         },
         skip: page * pageSize,
@@ -90,6 +96,12 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
                     user_id: true
                 }
             },
+            Order: {
+                select: {
+                    user_id: true,
+                    name: true
+                }
+            },
             ProductMedia: {
                 select: {
                     url: true,
@@ -97,7 +109,7 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
                 }
             },
             _count: {
-                select: { Love: true },
+                select: { Love: true, Review: true },
             },
         },
         skip: page * pageSize,
@@ -139,6 +151,12 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
                         user_id: true
                     }
                 },
+                Order: {
+                    select: {
+                        user_id: true,
+                        name: true
+                    }
+                },
                 ProductMedia: {
                     select: {
                         url: true,
@@ -146,7 +164,7 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
                     }
                 },
                 _count: {
-                    select: { Love: true },
+                    select: { Love: true, Review: true },
                 },
             },
             skip: page * pageSize,
@@ -203,6 +221,15 @@ exports.getById = catchAsync(async (req, res, next) => {
                     select: {
                         user_id: true
                     }
+                },
+                Order: {
+                    select: {
+                        user_id: true,
+                        name: true
+                    }
+                },
+                _count: {
+                    select: { Love: true, Review: true },
                 },
             },
         });
