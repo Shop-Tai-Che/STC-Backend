@@ -154,7 +154,8 @@ exports.getMostLovedProducts = catchAsync(async (req, res, next) => {
                 Order: {
                     select: {
                         user_id: true,
-                        name: true
+                        name: true,
+                        status: true
                     }
                 },
                 ProductMedia: {
@@ -225,7 +226,8 @@ exports.getById = catchAsync(async (req, res, next) => {
                 Order: {
                     select: {
                         user_id: true,
-                        name: true
+                        name: true,
+                        status: true
                     }
                 },
                 _count: {
