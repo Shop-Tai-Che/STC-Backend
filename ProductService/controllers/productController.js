@@ -36,7 +36,8 @@ exports.getAll = catchAsync(async (req, res, next) => {
             Order: {
                 select: {
                     user_id: true,
-                    name: true
+                    name: true,
+                    status: true
                 }
             },
             _count: {
@@ -99,7 +100,8 @@ exports.getAllProductsByShopId = catchAsync(async (req, res, next) => {
             Order: {
                 select: {
                     user_id: true,
-                    name: true
+                    name: true,
+                    status: true
                 }
             },
             ProductMedia: {
